@@ -8,4 +8,8 @@ app.get('/user/:id', function (req, res, next) {
     res.send('Hello World')
 });
 
+app.get('/user/:id', function (req, res, next) {
+    res.end(req.params.id)
+});
+
 app.listen(9090);
