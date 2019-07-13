@@ -23,6 +23,4 @@ app.use(function(req,res,next){
 	res.send(404,'Page not found!');
 });
 
-
-
 app.listen(8080);
