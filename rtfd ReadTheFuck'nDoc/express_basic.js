@@ -10,29 +10,15 @@ app.use(function(req, res, next) {
 });
 
 
-var cb0 = function (req, res, next) {
-  console.log('CB0')
-  next()
-}
-
-var cb1 = function (req, res, next) {
-  console.log('CB1')
-  next()
-}
-
-var cb2 = function (req, res,next) {
-  console.log('Hello from C!');
+var logger = function (req, res, next) {
+  console.log('LOGGED')
   next();
 }
 
-app.route('/users/:id/:name').get([cb0,cb1,cb2], function (req, res, next) {
-  console.log('the response will be sent by the next function ...')
-  next()
-}, function (req, res) {
-  res.send('Hello from D!')
-}).post(function(req,res){
-  res.type('json');
-  res.send({name : req.params.name});
+app.use(logger);
+
+app.get('/',function(req,res){
+  res.send('Hello');
 });
 
 app.listen(9090);
