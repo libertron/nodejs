@@ -11,10 +11,16 @@ var cb1 = function (req, res, next) {
   next()
 }
 
-var cb2 = function (req, res) {
-  res.send('Hello from C!')
+var cb2 = function (req, res,next) {
+  console.log('Hello from C!');
+  next();
 }
 
-app.get('/users/:id/:name',[cb0,cb1,cb2]);
+app.get('/users/:id/:name',[cb0,cb1,cb2], function (req, res, next) {
+  console.log('the response will be sent by the next function ...')
+  next()
+}, function (req, res) {
+  res.send('Hello from D!')
+});
 
 app.listen(9090);
