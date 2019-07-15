@@ -2,8 +2,10 @@ var express=require('express');
 var app=express();
 
 app.get('/users/:id/:name',function(req,res,next){
-  console.log(req.params);
-  console.log(res);
+  res.send('function 1');
+  next();
+},function(req,res,next){
+  res.send('function 2');
   next();
 });
 
