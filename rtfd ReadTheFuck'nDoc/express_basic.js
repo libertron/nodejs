@@ -30,6 +30,9 @@ app.route('/users/:id/:name').get([cb0,cb1,cb2], function (req, res, next) {
   next()
 }, function (req, res) {
   res.send('Hello from D!')
+}).post(function(req,res){
+  res.type('json');
+  res.send({name : req.params.name});
 });
 
 app.listen(9090);

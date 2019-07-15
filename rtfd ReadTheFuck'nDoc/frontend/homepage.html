@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script
-        src="https://code.jquery.com/jPOSTquery-3.4.1.min.js"
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
     </script>
@@ -17,11 +17,11 @@
   <script>
     $.ajax({
         url: "http://localhost:9090/users/1/marcus",
-        method: "GET",
+        method: "POST",
         data: {},
-        dataType: "html"
+        dataType: "json"
     }).done(function( msg ) {
-        alert( msg );
+        alert( msg.name );        
     });  
   </script>
 </body>
