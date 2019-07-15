@@ -1,12 +1,20 @@
 var express=require('express');
 var app=express();
 
-app.get('/users/:id/:name',function(req,res,next){
-  console.log('function 1');
-  next();
-},function(req,res,next){
-  res.send('function 2');
-  // next(); not really important here because it's the last function in the stack
-});
+var cb0 = function (req, res, next) {
+  console.log('CB0')
+  next()
+}
+
+var cb1 = function (req, res, next) {
+  console.log('CB1')
+  next()
+}
+
+var cb2 = function (req, res) {
+  res.send('Hello from C!')
+}
+
+app.get('/users/:id/:name',[cb0,cb1,cb2]);
 
 app.listen(9090);
