@@ -28,4 +28,16 @@ app.get('/',function(req,res){
   res.send(htmlResponse);
 });
 
+app.get('/user/:id',function(req,res,next){
+  if(req.params.id==='0') next('route')
+  else
+    next();
+},function(req,res,next){
+  res.send('Case that req.id >0');
+});
+
+app.get('/user/:id',function(req,res,next){
+  res.send('In that handler function req.id might equal to 0. Result =>'+req.params.id);
+})
+
 app.listen(9090);
