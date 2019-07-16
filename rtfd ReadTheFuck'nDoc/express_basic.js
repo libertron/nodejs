@@ -9,16 +9,23 @@ app.use(function(req, res, next) {
   next();
 });
 
-
 var logger = function (req, res, next) {
   console.log('LOGGED')
   next();
-}
+};
+
+var requestTime=function(req,res,next){
+  req.requestTime=Date.now;
+  next();
+};
 
 app.use(logger);
+app.use(requestTime);
 
 app.get('/',function(req,res){
-  res.send('Hello');
+  var htmlResponse='hello! <br/> you request that page at: ';
+  htmlResponse+='<smal>'+req.requestTime+'</smal>';
+  res.send(htmlResponse);
 });
 
 app.listen(9090);
