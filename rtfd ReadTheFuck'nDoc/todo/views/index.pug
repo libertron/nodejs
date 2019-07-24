@@ -1,0 +1,21 @@
+include ../mixins/task
+doctype html
+html
+    head
+        title Todo work
+        link(rel="stylesheet", href="/css/styles.css")
+        script(src="https://code.jquery.com/jquery-3.4.1.min.js", integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", crossorigin="anonymous")
+        script(src="/js/script.js" type="text/javascript")
+        meta(charset="utf-8")
+    body
+        .todoContainer   
+            h1.title My todo list
+
+            .listMaker
+                input(type='text' name='task' placeholder='What should i do?').taskInput
+                button(type=submit).submit confirm
+
+            each n,i in tasks
+                +displayTask(i,tasks[i])
+            else
+                em No task to display

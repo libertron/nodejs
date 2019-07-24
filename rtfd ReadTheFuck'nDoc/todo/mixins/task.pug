@@ -1,0 +1,7 @@
+mixin displayTask(i,task)
+    if !task.deleted
+        div(data-id=i).listDisplay
+            .listElem
+                span.dot &bull;
+                span.text #{task.text}
+                span(title='delete the task').delete x

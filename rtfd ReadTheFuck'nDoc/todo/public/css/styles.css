@@ -1,0 +1,65 @@
+body{
+    font-family:sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+.todoContainer{
+    width:600px;
+    margin:auto;
+    text-align:center;
+}
+.title{
+    font-size:50px;
+    font-weight:700;
+    height:40px;
+}
+.taskInput{
+    width:80%;
+    height:26px;
+    border:2px solid lightGray;
+    padding-left:4px;
+    font-size:18px;
+    color:#0067A3; 
+}
+.taskInput,.submit{
+    display:inline-block;
+    vertical-align:bottom;
+}
+.submit{
+    width:16%;
+    height:32px;
+    margin-left:4px;
+    background-color:#4FD1B5;
+    border:none;
+    border-radius:4px;
+    font-size:16px;
+    box-shadow:.1px 3px 3px lightGray;
+    color:white;
+    font-weight:600;
+    letter-spacing:.5px;
+    transition:background-color linear .3s;
+    cursor:pointer;
+}
+.submit:hover{
+    background-color:#B600F5;
+}
+.listDisplay{
+    margin-top:20px;
+}
+.listElem>span{
+    margin-right:12px;
+    font-size:23px;
+}
+.delete{
+    display:inline-block;
+    font-size:20px;
+    cursor:pointer;
+    width:23px;
+    height:23px;
+    text-align:center;
+    line-height:21px;
+    border-radius:2px;
+    background-color:#DB0059; 
+    color:#F2CC0C;               
+}
